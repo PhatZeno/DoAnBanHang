@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".QuanlidoanhthuActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Quản lí doanh thu"
+        android:textColor="@color/white"
+        android:background="#7B68EE"
+        android:textSize="25sp"/>
+
+    <EditText
+        android:id="@+id/edChiphibanhang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Chi phí bán hàng"/>
+
+    <EditText
+        android:id="@+id/edChiphinhanvien"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Chi phí nhân viên"/>
+
+    <EditText
+        android:id="@+id/edDoanhthubanhang"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Doanh thu bán hàng"/>
+
+    <EditText
+        android:id="@+id/edLoinhuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:hint="Lợi nhuận"/>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Thêm"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btnXem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Xem"
+            android:textAllCaps="false"/>
+
+        <Button
+            android:id="@+id/btnCapnhat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Cập nhật"
+            android:textAllCaps="false"/>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChiTietDonHangActivity">
+
+    <TextView
+        android:id="@+id/CTMaDonHang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="28dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RChitietdonhang"
+        android:layout_width="409dp"
+        android:layout_height="797dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CTMaDonHang"
+        tools:listitem="@layout/chitietdonhang_item" />
+
+    <TextView
+        android:id="@+id/CTMaKhachHang"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/CTMaDonHang"
+        app:layout_constraintTop_toTopOf="@+id/CTMaDonHang" />
+</androidx.constraintlayout.widget.ConstraintLayout>

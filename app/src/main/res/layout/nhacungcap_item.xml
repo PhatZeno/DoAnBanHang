@@ -1,0 +1,48 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/border"
+    android:padding="10dp"
+    android:translationY="10dp">
+
+    <TextView
+        android:id="@+id/Rtennhacungcap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="11dp"
+        android:text="Ten Danh Mục"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/baseline_more_vert_24" />
+
+    <TextView
+        android:id="@+id/RDesNhacungcap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Des"
+        app:layout_constraintStart_toStartOf="@+id/Rtennhacungcap"
+        app:layout_constraintTop_toBottomOf="@+id/Rtennhacungcap" />
+
+    <TextView
+        android:id="@+id/RDiachinhachungcap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Dia chi"
+        app:layout_constraintStart_toStartOf="@+id/RDesNhacungcap"
+        app:layout_constraintTop_toBottomOf="@+id/RDesNhacungcap" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
