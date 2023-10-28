@@ -49,7 +49,6 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         sanphams.clear();
         sanphams=dbHelper.getallSp();
         recyclerView.setAdapter(new SanPhamAdapter(R.id.view1, this, sanphams, MainActivity.this));
-        //recommendAdapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
 
         imageView= findViewById(R.id.person);
