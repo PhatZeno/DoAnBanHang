@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,8 +14,7 @@ import com.example.doanbanhang.List.ListNguoidung;
 import com.example.doanbanhang.List.ListNhaCungCapActivity;
 import com.example.doanbanhang.List.ListSanPham;
 import com.example.doanbanhang.Quanli.QuanlidoanhthuActivity;
-import com.example.doanbanhang.Quanli.Quanlidonhang;
-import com.example.doanbanhang.Quanli.Quanlinhacungcap;
+import com.example.doanbanhang.R;
 
 public class AdminActivity extends AppCompatActivity {
     TextView textsp,nguoidung;
@@ -29,7 +28,7 @@ public class AdminActivity extends AppCompatActivity {
         cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(AdminActivity.this,MainActivity.class);
+                Intent intent=new Intent(AdminActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }

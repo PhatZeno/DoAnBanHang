@@ -9,11 +9,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.example.doanbanhang.AddSpActivity;
 import com.example.doanbanhang.Quanli.Quanlinhacungcap;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.NhaCungCapAdapter;
-import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.data.NhaCungCap;
 import com.example.doanbanhang.db.DBHelper;
 

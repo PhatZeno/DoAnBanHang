@@ -13,7 +13,22 @@
         android:theme="@style/Theme.DoanBanHang"
         tools:targetApi="31">
         <activity
-            android:name=".ChiTietDonHangActivity"
+            android:name=".AllProcActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LaptopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChiTietSanPham.HeadphoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChiTietSanPham.PhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChiTietSanPham.PCActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activity.ChiTietDonHangActivity"
             android:exported="false" />
         <activity
             android:name=".List.ListDonHang"
@@ -31,16 +46,16 @@
             android:name=".List.ListNguoidung"
             android:exported="false" />
         <activity
-            android:name=".AddSpActivity"
+            android:name=".Activity.AddSpActivity"
             android:exported="false" />
         <activity
-            android:name=".AdminActivity"
+            android:name=".Activity.AdminActivity"
             android:exported="false" />
         <activity
-            android:name=".CartActivity"
+            android:name=".Activity.CartActivity"
             android:exported="false" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".Activity.RegisterActivity"
             android:exported="false" />
         <activity
             android:name=".Quanli.Quanlidonhang"
@@ -61,10 +76,10 @@
             android:name=".Quanli.Quanlisanpham"
             android:exported="false" />
         <activity
-            android:name=".DetailActivity2"
+            android:name=".Activity.DetailActivity2"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,7 +88,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.MainActivity"
             android:exported="false" />
     </application>
 

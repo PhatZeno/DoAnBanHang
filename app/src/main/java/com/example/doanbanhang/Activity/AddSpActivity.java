@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.doanbanhang.List.ListSanPham;
+import com.example.doanbanhang.R;
 import com.example.doanbanhang.data.DanhMuc;
 import com.example.doanbanhang.data.NhaCungCap;
 import com.example.doanbanhang.db.DBHelper;

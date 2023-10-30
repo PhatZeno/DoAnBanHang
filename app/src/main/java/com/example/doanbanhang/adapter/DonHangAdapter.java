@@ -14,7 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doanbanhang.ChiTietDonHangActivity;
+import com.example.doanbanhang.Activity.ChiTietDonHangActivity;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.data.ChiTietDonHang;
 import com.example.doanbanhang.data.DonHang;

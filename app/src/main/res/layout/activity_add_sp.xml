@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradientalbum"
-    tools:context=".AddSpActivity">
+    tools:context=".Activity.AddSpActivity">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textgia"

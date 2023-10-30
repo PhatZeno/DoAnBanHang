@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.data.Sanpham;
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         imageView10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(MainActivity.this,CartActivity.class);
+                Intent intent=new Intent(MainActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });

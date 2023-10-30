@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.data.ChiTietDonHang;
 import com.example.doanbanhang.data.DonHang;
@@ -55,7 +56,7 @@ public class CartActivity extends AppCompatActivity implements SanPhamAdapter.Li
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(CartActivity.this,MainActivity.class);
+                Intent intent=new Intent(CartActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

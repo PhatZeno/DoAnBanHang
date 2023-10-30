@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
-import com.example.doanbanhang.LoginActivity;
+import com.example.doanbanhang.Activity.LoginActivity;
 
 import java.util.HashMap;
 

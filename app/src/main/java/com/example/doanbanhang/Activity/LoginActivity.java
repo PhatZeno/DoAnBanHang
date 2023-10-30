@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanbanhang.R;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.session.SessionManager;
 

@@ -1,4 +1,4 @@
-package com.example.doanbanhang;
+package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,14 +7,11 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.doanbanhang.List.ListDanhMucActivity;
+import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.ChiTietDonHangAdapter;
-import com.example.doanbanhang.adapter.DonHangAdapter;
 import com.example.doanbanhang.data.ChiTietDonHang;
-import com.example.doanbanhang.data.DonHang;
 import com.example.doanbanhang.db.DBHelper;
 
 import java.util.ArrayList;
