@@ -13,10 +13,10 @@
         android:theme="@style/Theme.DoanBanHang"
         tools:targetApi="31">
         <activity
-            android:name=".AllProcActivity"
+            android:name=".Activity.ChiTietSanPham.AllProcActivity"
             android:exported="false" />
         <activity
-            android:name=".LaptopActivity"
+            android:name=".Activity.ChiTietSanPham.LaptopActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.ChiTietSanPham.HeadphoneActivity"

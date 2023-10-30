@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.doanbanhang.Activity.AdminActivity;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.DanhMucAdapter;
 import com.example.doanbanhang.adapter.DonHangAdapter;
@@ -21,7 +23,7 @@ import java.util.ArrayList;
 public class ListDonHang extends AppCompatActivity implements DonHangAdapter.Listener{
     DBHelper dbHelper;
     ArrayList<DonHang> donHangs;
-    ImageView imgadd;
+    ImageView imgadd,back;
     RecyclerView recyclerViewDonHang;
     DonHangAdapter donHangAdapter;
     @Override
@@ -31,6 +33,14 @@ public class ListDonHang extends AppCompatActivity implements DonHangAdapter.Lis
         dbHelper=new DBHelper(ListDonHang.this);
         recyclerViewDonHang=findViewById(R.id.RecyclerviewDonhang);
         donHangs=dbHelper.getalldonhang();
+        back=findViewById(R.id.back_sp);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListDonHang.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
         donHangAdapter = new DonHangAdapter(R.id.RecyclerviewDonhang, ListDonHang.this, donHangs, ListDonHang.this); // Khởi tạo adapter
         recyclerViewDonHang.setAdapter(donHangAdapter);
         recyclerViewDonHang.setLayoutManager(new LinearLayoutManager(ListDonHang.this, LinearLayoutManager.VERTICAL, false));

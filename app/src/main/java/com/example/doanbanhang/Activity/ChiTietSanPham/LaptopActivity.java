@@ -15,23 +15,23 @@ import com.example.doanbanhang.db.DBHelper;
 import java.util.ArrayList;
 
 
-public class PhoneActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
+public class LaptopActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
 
     DBHelper dbHelper;
-    RecyclerView RPhone;
+    RecyclerView RLaptop;
     ArrayList<Sanpham> sanphams;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone);
-        RPhone=findViewById(R.id.rAllPhone);
-        dbHelper=new DBHelper(PhoneActivity.this);
+        setContentView(R.layout.activity_laptop);
+        RLaptop=findViewById(R.id.rAllLaptop);
+        dbHelper=new DBHelper(LaptopActivity.this);
 
-        sanphams=dbHelper.getallPhone();
+        sanphams=dbHelper.getallLaptop();
         sanphams.clear();
-        sanphams=dbHelper.getallPhone();
-        RPhone.setAdapter(new SanPhamAdapter(R.id.rAllPhone, this, sanphams, PhoneActivity.this));
-        RPhone.setLayoutManager(new LinearLayoutManager(PhoneActivity.this, LinearLayoutManager.VERTICAL, false));
+        sanphams=dbHelper.getallLaptop();
+        RLaptop.setAdapter(new SanPhamAdapter(R.id.rAllLaptop, this, sanphams, LaptopActivity.this));
+        RLaptop.setLayoutManager(new LinearLayoutManager(LaptopActivity.this, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override

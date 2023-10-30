@@ -125,7 +125,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"/>
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView2"
@@ -172,7 +172,7 @@
                         android:background="@drawable/btn_cat_back">
 
                         <ImageView
-                            android:id="@+id/imageView4"
+                            android:id="@+id/img_pc"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -206,7 +206,7 @@
                         android:background="@drawable/btn_cat_back">
 
                         <ImageView
-                            android:id="@+id/imageView5"
+                            android:id="@+id/img_phone"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -240,7 +240,7 @@
                         android:background="@drawable/btn_cat_back">
 
                         <ImageView
-                            android:id="@+id/imageView6"
+                            android:id="@+id/img_headphone"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -274,7 +274,7 @@
                         android:background="@drawable/btn_cat_back">
 
                         <ImageView
-                            android:id="@+id/imageView7"
+                            android:id="@+id/img_laptop"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -308,7 +308,7 @@
                         android:background="@drawable/btn_cat_back">
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/img_allsp"
                             android:layout_width="40dp"
                             android:layout_height="40dp"
                             app:layout_constraintBottom_toBottomOf="parent"

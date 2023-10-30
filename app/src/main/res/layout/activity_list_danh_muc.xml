@@ -30,7 +30,7 @@
         tools:listitem="@layout/danhmuc_item" />
 
     <ImageView
-        android:id="@+id/imageView9"
+        android:id="@+id/back_sp"
         android:layout_width="35dp"
         android:layout_height="35dp"
         app:layout_constraintEnd_toStartOf="@+id/txNguoidung"

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.doanbanhang.Activity.AdminActivity;
 import com.example.doanbanhang.Quanli.Quanlidanhmuchang;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.DanhMucAdapter;
@@ -21,7 +22,7 @@ public class ListDanhMucActivity extends AppCompatActivity implements DanhMucAda
 
     DBHelper dbHelper;
     ArrayList<DanhMuc> danhMucs;
-    ImageView imgadd;
+    ImageView imgadd,back;
     RecyclerView recyclerViewDanhmuc;
     DanhMucAdapter danhMucAdapter;
     @Override
@@ -35,6 +36,14 @@ public class ListDanhMucActivity extends AppCompatActivity implements DanhMucAda
         recyclerViewDanhmuc.setAdapter(danhMucAdapter);
         recyclerViewDanhmuc.setLayoutManager(new LinearLayoutManager(ListDanhMucActivity.this, LinearLayoutManager.VERTICAL, false));
         imgadd=findViewById(R.id.adddanhmuc);
+        back=findViewById(R.id.back_sp);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListDanhMucActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
         imgadd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

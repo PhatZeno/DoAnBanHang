@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.data.ChiTietDonHang;
+import com.example.doanbanhang.db.DBHelper;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,9 @@ public class ChiTietDonHangAdapter extends RecyclerView.Adapter<ChiTietDonHangAd
     public void onBindViewHolder(@NonNull ChiTietDonHangAdapter.ChiTietDonHangVH holder, @SuppressLint("RecyclerView") int position) {
         ChiTietDonHang ChiTietDonHang = ChiTietDonHangs.get(position);
         holder.setIsRecyclable(false);
-        holder.TenSp.setText(String.valueOf(ChiTietDonHang.getMaSanPham()));
+        DBHelper dbHelper=new DBHelper(context);
+        String tensp=dbHelper.getProductName(ChiTietDonHang.getMaSanPham());
+        holder.TenSp.setText(tensp);
         holder.Soluong.setText(String.valueOf(ChiTietDonHang.getSoLuong()));
         holder.gia.setText(String.valueOf(ChiTietDonHang.getGiaBan()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {

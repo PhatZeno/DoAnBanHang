@@ -12,6 +12,11 @@ import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
+import com.example.doanbanhang.Activity.ChiTietSanPham.AllProcActivity;
+import com.example.doanbanhang.Activity.ChiTietSanPham.HeadphoneActivity;
+import com.example.doanbanhang.Activity.ChiTietSanPham.LaptopActivity;
+import com.example.doanbanhang.Activity.ChiTietSanPham.PCActivity;
+import com.example.doanbanhang.Activity.ChiTietSanPham.PhoneActivity;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.db.DBHelper;
@@ -21,7 +26,7 @@ import com.example.doanbanhang.session.SessionManager;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Listener{
-    ImageView imageView10,imageView;
+    ImageView imageView10,imageView,PC,Phone,Headphone,Laptop,all;
     RecyclerView recyclerView;
     TextView greeting;
     ArrayList<Sanpham> sanphams;
@@ -33,6 +38,47 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         imageView10=findViewById(R.id.imggiohang);
+        PC=findViewById(R.id.img_pc);
+        Phone = findViewById(R.id.img_phone);
+        Headphone=findViewById(R.id.img_headphone);
+        Laptop=findViewById(R.id.img_laptop);
+        Laptop=findViewById(R.id.img_laptop);
+        all=findViewById(R.id.img_allsp);
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, AllProcActivity.class);
+                startActivity(intent);
+            }
+        });
+        Laptop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, LaptopActivity.class);
+                startActivity(intent);
+            }
+        });
+        Headphone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, HeadphoneActivity.class);
+                startActivity(intent);
+            }
+        });
+        Phone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, PhoneActivity.class);
+                startActivity(intent);
+            }
+        });
+        PC.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, PCActivity.class);
+                startActivity(intent);
+            }
+        });
         dbHelper=new DBHelper(MainActivity.this);
         recyclerView=findViewById(R.id.view1);
         sessionManager=new SessionManager(MainActivity.this);

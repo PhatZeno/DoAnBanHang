@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.doanbanhang.Activity.AddSpActivity;
+import com.example.doanbanhang.Activity.AdminActivity;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.data.Sanpham;
@@ -23,12 +24,20 @@ public class ListSanPham extends AppCompatActivity implements SanPhamAdapter.Lis
     DBHelper dbHelper;
     RecyclerView rsp;
     ArrayList<Sanpham> sanphams;
-    ImageView addsp;
+    ImageView addsp,back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_san_pham);
         rsp=findViewById(R.id.RecyclerviewProduct);
+        back=findViewById(R.id.back_sp);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListSanPham.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
         dbHelper=new DBHelper(ListSanPham.this);
         sanphams=dbHelper.getallSp();
         sanPhamAdapter = new SanPhamAdapter(R.id.RecyclerviewProduct, ListSanPham.this, sanphams, ListSanPham.this); // Khởi tạo adapter

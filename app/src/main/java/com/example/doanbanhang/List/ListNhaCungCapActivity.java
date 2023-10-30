@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 
+import com.example.doanbanhang.Activity.AdminActivity;
 import com.example.doanbanhang.Quanli.Quanlinhacungcap;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.NhaCungCapAdapter;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 public class ListNhaCungCapActivity extends AppCompatActivity implements NhaCungCapAdapter.Listener {
     NhaCungCapAdapter nhaCungCapAdapter;
     DBHelper dbHelper;
-    ImageView imgadd;
+    ImageView imgadd,back;
     ArrayList<NhaCungCap> nhaCungCaps;
     RecyclerView recyclerViewNhacungcap;
     @Override
@@ -29,6 +30,14 @@ public class ListNhaCungCapActivity extends AppCompatActivity implements NhaCung
         setContentView(R.layout.activity_list_nha_cung_cap);
         dbHelper=new DBHelper(ListNhaCungCapActivity.this);
         recyclerViewNhacungcap=findViewById(R.id.RecyclerviewNhacungcap);
+        back=findViewById(R.id.back_sp);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(ListNhaCungCapActivity.this, AdminActivity.class);
+                startActivity(intent);
+            }
+        });
         nhaCungCaps=dbHelper.getallnhacungcap();
         nhaCungCapAdapter = new NhaCungCapAdapter(R.id.RecyclerviewProduct, ListNhaCungCapActivity.this, nhaCungCaps, ListNhaCungCapActivity.this); // Khởi tạo adapter
         recyclerViewNhacungcap.setAdapter(nhaCungCapAdapter);

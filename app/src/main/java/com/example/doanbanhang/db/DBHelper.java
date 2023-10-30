@@ -134,7 +134,86 @@ public class DBHelper {
     cursor.close();
     return tam;
 }
+    public String getProductName(int ID){
+        db=openDB();
+        String sql="SELECT TENSP FROM Sanpham WHERE ID=?";
+        Cursor cursor=db.rawQuery(sql, new String[]{String.valueOf(ID)});
+        if (cursor.moveToFirst()){
+            String name= cursor.getString(0);
+            cursor.close();
+            return name;
+        }
+        return null;
+    }
 
+    public ArrayList<Sanpham> getallPC() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%PC%'";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallPhone() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Phone%'";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallHP() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%HP%'";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallLaptop() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Laptop%'";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
     public long insertSanpham(Sanpham sanpham, int ID, Context context){
         db = openDB();
         String query = "SELECT * FROM Sanpham WHERE ID=?";
