@@ -1,4 +1,4 @@
-package com.example.doanbanhang.Activity.ChiTietSanPham;
+package com.example.doanbanhang.adapter.ChiTietSanPham;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

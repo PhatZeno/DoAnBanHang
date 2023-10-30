@@ -134,6 +134,25 @@ public class DBHelper {
     cursor.close();
     return tam;
 }
+    public ArrayList<Sanpham> searchSanpham(String newQuery){
+        ArrayList<Sanpham> tmp = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE TENSP like '%" + newQuery +"%'";
+        Cursor cursor = db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            int id=cursor.getInt(0);
+            String name= cursor.getString(1);
+            String des=cursor.getString(2);
+            int gia=cursor.getInt(3);
+            String danhmuc=cursor.getString(4);
+            Sanpham sanpham=new Sanpham(id,name,des,gia,danhmuc);
+            tmp.add(sanpham);
+        }
+
+        db.close();
+
+        return tmp;
+    }
     public String getProductName(int ID){
         db=openDB();
         String sql="SELECT TENSP FROM Sanpham WHERE ID=?";

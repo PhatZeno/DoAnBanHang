@@ -1,4 +1,4 @@
-package com.example.doanbanhang.Activity.ChiTietSanPham;
+package com.example.doanbanhang.adapter.ChiTietSanPham;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,24 +14,23 @@ import com.example.doanbanhang.db.DBHelper;
 
 import java.util.ArrayList;
 
-
-public class PhoneActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
+public class PCActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
 
     DBHelper dbHelper;
-    RecyclerView RPhone;
+    RecyclerView RPC;
     ArrayList<Sanpham> sanphams;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone);
-        RPhone=findViewById(R.id.rAllPhone);
-        dbHelper=new DBHelper(PhoneActivity.this);
+        setContentView(R.layout.activity_pcactivity);
+        RPC=findViewById(R.id.rAllPC);
+        dbHelper=new DBHelper(PCActivity.this);
 
-        sanphams=dbHelper.getallPhone();
+        sanphams=dbHelper.getallPC();
         sanphams.clear();
-        sanphams=dbHelper.getallPhone();
-        RPhone.setAdapter(new SanPhamAdapter(R.id.rAllPhone, this, sanphams, PhoneActivity.this));
-        RPhone.setLayoutManager(new LinearLayoutManager(PhoneActivity.this, LinearLayoutManager.VERTICAL, false));
+        sanphams=dbHelper.getallPC();
+        RPC.setAdapter(new SanPhamAdapter(R.id.rAllPC, this, sanphams, PCActivity.this));
+        RPC.setLayoutManager(new LinearLayoutManager(PCActivity.this, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override

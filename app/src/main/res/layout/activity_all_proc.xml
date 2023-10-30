@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.ChiTietSanPham.PCActivity">
+    tools:context=".adapter.ChiTietSanPham.PCActivity">
 
     <TextView
         android:id="@+id/txAllProc"

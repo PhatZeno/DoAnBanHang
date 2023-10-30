@@ -13,19 +13,22 @@
         android:theme="@style/Theme.DoanBanHang"
         tools:targetApi="31">
         <activity
-            android:name=".Activity.ChiTietSanPham.AllProcActivity"
+            android:name=".SearchProcActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ChiTietSanPham.LaptopActivity"
+            android:name=".adapter.ChiTietSanPham.AllProcActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ChiTietSanPham.HeadphoneActivity"
+            android:name=".adapter.ChiTietSanPham.LaptopActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ChiTietSanPham.PhoneActivity"
+            android:name=".adapter.ChiTietSanPham.HeadphoneActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.ChiTietSanPham.PCActivity"
+            android:name=".adapter.ChiTietSanPham.PhoneActivity"
+            android:exported="false" />
+        <activity
+            android:name=".adapter.ChiTietSanPham.PCActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.ChiTietDonHangActivity"

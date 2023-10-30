@@ -8,16 +8,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 
-import com.example.doanbanhang.Activity.ChiTietSanPham.AllProcActivity;
-import com.example.doanbanhang.Activity.ChiTietSanPham.HeadphoneActivity;
-import com.example.doanbanhang.Activity.ChiTietSanPham.LaptopActivity;
-import com.example.doanbanhang.Activity.ChiTietSanPham.PCActivity;
-import com.example.doanbanhang.Activity.ChiTietSanPham.PhoneActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.AllProcActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.HeadphoneActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.LaptopActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.PCActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.PhoneActivity;
 import com.example.doanbanhang.R;
+import com.example.doanbanhang.SearchProcActivity;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.data.Sanpham;
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
     ArrayList<Sanpham> sanphams;
     SanPhamAdapter sanPhamAdapter;
     DBHelper dbHelper;
+    EditText search;
     SessionManager sessionManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +47,16 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         Laptop=findViewById(R.id.img_laptop);
         Laptop=findViewById(R.id.img_laptop);
         all=findViewById(R.id.img_allsp);
+        // Trong Activity A
+        EditText editTextA = findViewById(R.id.editTextTextPersonName);
+        editTextA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SearchProcActivity.class);
+                startActivity(intent);
+            }
+        });
+
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

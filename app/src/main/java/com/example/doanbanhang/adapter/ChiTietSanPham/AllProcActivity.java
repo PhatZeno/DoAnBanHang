@@ -1,4 +1,4 @@
-package com.example.doanbanhang.Activity.ChiTietSanPham;
+package com.example.doanbanhang.adapter.ChiTietSanPham;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,24 +15,24 @@ import com.example.doanbanhang.db.DBHelper;
 import java.util.ArrayList;
 
 
-public class HeadphoneActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
+public class AllProcActivity extends AppCompatActivity implements SanPhamAdapter.Listener {
 
     DBHelper dbHelper;
     SanPhamAdapter sanPhamAdapter;
-    RecyclerView RHeadphone;
+    RecyclerView RAllProc;
     ArrayList<Sanpham> sanphams;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_headphone);
-        RHeadphone=findViewById(R.id.rAllheadphone);
-        dbHelper=new DBHelper(HeadphoneActivity.this);
+        setContentView(R.layout.activity_all_proc);
+        RAllProc=findViewById(R.id.rAllAllProc);
+        dbHelper=new DBHelper(AllProcActivity.this);
 
-        sanphams=dbHelper.getallHP();
+        sanphams=dbHelper.getallSp();
         sanphams.clear();
-        sanphams=dbHelper.getallHP();
-        RHeadphone.setAdapter(new SanPhamAdapter(R.id.rAllheadphone, this, sanphams, HeadphoneActivity.this));
-        RHeadphone.setLayoutManager(new LinearLayoutManager(HeadphoneActivity.this, LinearLayoutManager.VERTICAL, false));
+        sanphams=dbHelper.getallSp();
+        RAllProc.setAdapter(new SanPhamAdapter(R.id.rAllAllProc, this, sanphams, AllProcActivity.this));
+        RAllProc.setLayoutManager(new LinearLayoutManager(AllProcActivity.this, LinearLayoutManager.VERTICAL, false));
     }
 
     @Override
