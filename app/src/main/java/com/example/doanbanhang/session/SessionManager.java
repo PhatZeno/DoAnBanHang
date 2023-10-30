@@ -41,7 +41,10 @@ public class SessionManager {
         editor.putString(KEY_ROLE,role);
         editor.commit();
     }
-
+    public  String getRole(){
+        String role=pref.getString("role",null);
+        return role;
+    }
     public HashMap<String, String> getUserDetails(){
         HashMap<String, String> user = new HashMap<String, String>();
         user.put(KEY_USERNAME, pref.getString(KEY_USERNAME, null));

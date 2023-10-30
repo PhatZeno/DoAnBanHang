@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -50,28 +51,52 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         sanphams=dbHelper.getallSp();
         recyclerView.setAdapter(new SanPhamAdapter(R.id.view1, this, sanphams, MainActivity.this));
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
-
+        String isAdmin=sessionManager.getRole();
         imageView= findViewById(R.id.person);
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PopupMenu popup = new PopupMenu(MainActivity.this, view);
-                popup.getMenuInflater().inflate(R.menu.log_out, popup.getMenu());
-                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-                    public boolean onMenuItemClick(MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.btnLogout:
-                                Intent intent =new Intent(MainActivity.this, LoginActivity.class  );
-                                startActivity(intent);
-                                SessionManager sessionManager=new SessionManager(MainActivity.this);
-                                sessionManager.logoutUser();
-                                return true;
-                            default:
-                                return false;
+                // Kiểm tra vai trò của người dùng
+                if (isAdmin.trim().equals("admin")) {
+                    popup.getMenuInflater().inflate(R.menu.admin_logout, popup.getMenu());
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()) {
+                                case R.id.btnAdmin:
+                                    Intent intent =new Intent(MainActivity.this, AdminActivity.class  );
+                                    startActivity(intent);
+                                    return true;
+                                case R.id.btnAdLogout:
+                                    Intent intent2 =new Intent(MainActivity.this, LoginActivity.class  );
+                                    startActivity(intent2);
+                                    SessionManager sessionManager=new SessionManager(MainActivity.this);
+                                    sessionManager.logoutUser();
+                                    return true;
+                                default:
+                                    return false;
+                            }
                         }
-                    }
-                });
-                popup.show();
+                    });
+                    popup.show();
+                } else {
+                    popup.getMenuInflater().inflate(R.menu.log_out, popup.getMenu());
+                    popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                        public boolean onMenuItemClick(MenuItem item) {
+                            switch (item.getItemId()) {
+                                case R.id.btnLogout:
+                                    Intent intent3 =new Intent(MainActivity.this, LoginActivity.class  );
+                                    startActivity(intent3);
+                                    SessionManager sessionManager=new SessionManager(MainActivity.this);
+                                    sessionManager.logoutUser();
+                                    return true;
+                                default:
+                                    return false;
+                            }
+                        }
+                    });
+                    popup.show();
+                }
             }
         });
     }

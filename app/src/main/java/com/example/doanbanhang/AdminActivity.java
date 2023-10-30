@@ -19,13 +19,21 @@ import com.example.doanbanhang.Quanli.Quanlinhacungcap;
 
 public class AdminActivity extends AppCompatActivity {
     TextView textsp,nguoidung;
-
+    ImageView cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin);
-
+        cart=findViewById(R.id.img_cart);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AdminActivity.this,MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         ImageView ivdonhang=findViewById(R.id.ivquanlidonhang);
         ivdonhang.setOnClickListener(new View.OnClickListener() {
             @Override
