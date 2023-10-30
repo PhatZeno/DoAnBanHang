@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
+import com.example.doanbanhang.Activity.MainActivity;
 import com.example.doanbanhang.adapter.SearchAdapter;
 import com.example.doanbanhang.data.Sanpham;
 import com.example.doanbanhang.db.DBHelper;
@@ -22,6 +25,7 @@ public class SearchProcActivity extends AppCompatActivity implements SearchAdapt
     ArrayList<Sanpham> sanphamArrayList;
     SearchAdapter searchApdater;
     EditText editText;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,7 +62,15 @@ public class SearchProcActivity extends AppCompatActivity implements SearchAdapt
 
             }
         });
-
+        back=findViewById(R.id.img_back_search);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(SearchProcActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
     @Override
     protected void onResume() {
