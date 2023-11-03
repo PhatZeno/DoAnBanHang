@@ -41,7 +41,7 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        //Test pull git hub
         inputemail = findViewById(R.id.inputEmail);
         inputmatkhau = findViewById(R.id.inputPassword);
         btndn = findViewById(R.id.btnLogin);
