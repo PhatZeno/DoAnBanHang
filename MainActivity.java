@@ -1,0 +1,113 @@
+package com.example.doanbanhang;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.PopupMenu;
+import android.widget.TextView;
+
+import com.example.doanbanhang.adapter.SanPhamAdapter;
+import com.example.doanbanhang.db.DBHelper;
+import com.example.doanbanhang.data.Sanpham;
+import com.example.doanbanhang.session.SessionManager;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Listener{
+    ImageView imageView10,imageView,imageViewSearch;
+    RecyclerView recyclerView;
+    TextView greeting,textView2;
+    ArrayList<Sanpham> sanphams;
+    EditText editTextTextPersonName;
+    SanPhamAdapter sanPhamAdapter;
+    DBHelper dbHelper;
+    SessionManager sessionManager;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        imageView10=findViewById(R.id.imggiohang);
+        imageViewSearch = findViewById(R.id.search);
+        dbHelper=new DBHelper(MainActivity.this);
+        recyclerView=findViewById(R.id.view1);
+        sessionManager=new SessionManager(MainActivity.this);
+        greeting=findViewById(R.id.textchao);
+        textView2 = findViewById(R.id.textView2);
+        editTextTextPersonName = findViewById(R.id.editTextTextPersonName);
+        String name=sessionManager.getstring();
+        greeting.setText("Xin Chào"+" "+name);
+        imageView10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,CartActivity.class);
+                startActivity(intent);
+            }
+        });
+        sanphams=dbHelper.getallSp();
+        sanphams.clear();
+        sanphams=dbHelper.getallSp();
+        recyclerView.setAdapter(new SanPhamAdapter(R.id.view1, this, sanphams, MainActivity.this));
+        //recommendAdapter.notifyDataSetChanged();
+        recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this, LinearLayoutManager.VERTICAL, false));
+
+        imageView= findViewById(R.id.person);
+        imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PopupMenu popup = new PopupMenu(MainActivity.this, view);
+                popup.getMenuInflater().inflate(R.menu.log_out, popup.getMenu());
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+                            case R.id.btnLogout:
+                                Intent intent =new Intent(MainActivity.this, LoginActivity.class  );
+                                startActivity(intent);
+                                SessionManager sessionManager=new SessionManager(MainActivity.this);
+                                sessionManager.logoutUser();
+                                return true;
+                            default:
+                                return false;
+                        }
+                    }
+                });
+                popup.show();
+            }
+        });
+
+        textView2.setOnClickListener(view -> {
+            Intent intent =new Intent(MainActivity.this, ChiTietQCActivity.class  );
+            startActivity(intent);
+        });
+
+        imageViewSearch.setOnClickListener(view -> {
+            Intent intent =new Intent(MainActivity.this, DanhSachSearchActivity.class  );
+            intent.putExtra("search",editTextTextPersonName.getText().toString());
+            startActivity(intent);
+        });
+    }
+
+    @Override
+    public void onItemClickListener4(int recyclerViewId, Sanpham sanpham, int size) {
+//        ArrayList<Sanpham> Arraysp = new ArrayList<>();
+//
+//        for (Sanpham sanpham1 : sanphams) {
+//            Arraysp.add(sanpham1);
+//        }
+       Intent intent = new Intent(this, ChiTietSanPhamActivity.class);
+      intent.putExtra("id",sanpham.getID());
+        startActivity(intent);
+    }
+
+
+    @Override
+    public void onItemLongClickListener4(int recyclerViewId, Sanpham sanpham, View view) {
+
+    }
+}
