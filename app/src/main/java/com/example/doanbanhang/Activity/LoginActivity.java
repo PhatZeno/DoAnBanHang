@@ -75,6 +75,8 @@ public class LoginActivity extends AppCompatActivity {
                             String role=dbHelper.searchrole(username);
                             Log.d("TAG", "onClick: "+role);
                             session.createLoginSession(username, password,name,role);
+                            int a=dbHelper.searchID(username);
+                            session.setUserID(a);
                             Toast.makeText(LoginActivity.this, "Đăng nhập thành công", Toast.LENGTH_SHORT).show();
 
                             if(role.trim().equals("admin")){

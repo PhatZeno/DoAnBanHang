@@ -53,6 +53,19 @@ public class DBHelper {
         }
 
     }
+    public int searchID(String newQuery){
+        int id = -1;
+        db = openDB();
+        String sql = "SELECT ID FROM User WHERE USERNAME like '%" + newQuery +"%'";
+        Cursor cursor = db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            id = cursor.getInt(0);
+        }
+        db.close();
+        return id;
+    }
+
+    //thêm người dùng vào database
     public long insertuser(User user, String email, Context context){
         db=openDB();
         String querry="SELECT * FROM User WHERE USERNAME=?";
@@ -75,6 +88,7 @@ public class DBHelper {
         }
     }
 
+    //Kiểm tra tài khoản và mật khẩu có trong database
     public Boolean checkusernamepassword(String username, String password){
         db=openDB();
         String querry="SELECT * FROM User WHERE USERNAME=? and PASSWORD=?";
@@ -152,6 +166,36 @@ public class DBHelper {
         db.close();
 
         return tmp;
+    }
+    public String searchpassword(int newQuery){
+        String name = null;
+        db = openDB();
+        String sql = "SELECT PASSWORD FROM User WHERE ID like '%" + newQuery +"%'";
+        Cursor cursor = db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            name= cursor.getString(0);
+        }
+        db.close();
+        return name;
+    }
+    public long updatepassword(User user){
+        db = openDB();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("PASSWORD",user.getPassword());
+        long tmp = db.update("User",contentValues, "ID="+ user.getID(), null);
+        db.close();
+        return tmp;
+    }
+    public String searchusername(int newQuery){
+        String name = null;
+        db = openDB();
+        String sql = "SELECT USERNAME FROM User WHERE ID like '%" + newQuery +"%'";
+        Cursor cursor = db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            name= cursor.getString(0);
+        }
+        db.close();
+        return name;
     }
     public String getProductName(int ID){
         db=openDB();

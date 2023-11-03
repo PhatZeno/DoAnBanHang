@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
     ImageView imageView10,imageView,PC,Phone,Headphone,Laptop,all;
     RecyclerView recyclerView;
     TextView greeting;
+    ImageView imageViews;
     ArrayList<Sanpham> sanphams;
     SanPhamAdapter sanPhamAdapter;
     DBHelper dbHelper;
@@ -56,7 +57,15 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
                 startActivity(intent);
             }
         });
-
+        imageViews=findViewById(R.id.personal);
+        imageViews.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this,AccountActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

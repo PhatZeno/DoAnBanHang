@@ -82,6 +82,9 @@
             android:name=".Activity.DetailActivity2"
             android:exported="false" />
         <activity
+            android:name=".Activity.AccountActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>

@@ -41,6 +41,14 @@ public class SessionManager {
         editor.putString(KEY_ROLE,role);
         editor.commit();
     }
+    public void setUserID(int userID) {
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("userID", userID);
+        editor.apply();
+    }
+    public int getUserID() {
+        return pref.getInt("userID", -1); // -1 là giá trị mặc định nếu không tìm thấy "userID"
+    }
     public  String getRole(){
         String role=pref.getString("role",null);
         return role;
