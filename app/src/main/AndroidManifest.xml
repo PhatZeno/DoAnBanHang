@@ -13,6 +13,12 @@
         android:theme="@style/Theme.DoanBanHang"
         tools:targetApi="31">
         <activity
+            android:name=".ChitietbannerActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LichsumuahangActivity"
+            android:exported="false" />
+        <activity
             android:name=".SearchProcActivity"
             android:exported="false" />
         <activity

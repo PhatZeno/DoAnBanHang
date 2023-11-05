@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanbanhang.R;
+import com.example.doanbanhang.adapter.ChiTietSanPham.HeadphoneActivity;
 import com.example.doanbanhang.data.User;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.session.SessionManager;
@@ -28,6 +29,8 @@ public class AccountActivity extends AppCompatActivity {
     TextView ID,UserName,Password;
     Button logout;
     ImageView back;
+
+    TextView lichsumuahang;
     DBHelper dbHelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +54,7 @@ public class AccountActivity extends AppCompatActivity {
         UserName=findViewById(R.id.Account_User_UserName);
         UserName.setText("Email: "+dbHelper.searchusername(sessionManager.getUserID()));
         back=findViewById(R.id.img_back_ac);
+        lichsumuahang=findViewById(R.id.Account_User_History);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,8 +155,16 @@ public class AccountActivity extends AppCompatActivity {
                 dialog.cancel();
             }
         });
-
         builder.show();
+
+
+        lichsumuahang.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(AccountActivity.this, HeadphoneActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

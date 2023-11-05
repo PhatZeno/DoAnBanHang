@@ -106,5 +106,15 @@
             android:textSize="20sp"
             app:layout_constraintStart_toStartOf="@+id/Account_User_UserName"
             app:layout_constraintTop_toBottomOf="@+id/Account_User_UserName" />
+
+        <TextView
+            android:id="@+id/Account_User_History"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:text="Lịch sử mua hàng"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/Account_User_Password"
+            app:layout_constraintTop_toBottomOf="@+id/Account_User_Password" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </LinearLayout>

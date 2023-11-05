@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".adapter.ChiTietSanPham.ChitietbannerActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textStyle="bold"
+        android:text="Các chương trình khuyến mãi"
+        android:textColor="@color/white"
+        android:background="#7B68EE"
+        android:textSize="20sp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/anh"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnXem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:text="Galaxy S21 FE, S22 Ultra, S23 series, đua nhau giảm giá cuối tuần, mức sale cao nhất đến 14 triệu"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@drawable/anh2"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnsdf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:text="Khách hàng VIP sẽ được giảm giá đến 40% khi đến mua điện thoại tại cửa hàng"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:background="@drawable/hinh3"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/btnfghfgh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textStyle="bold"
+            android:text="iPhone 15 Pro Max 256GB giảm sốc nhất từ trước đến nay, số lượng có hạn"
+            android:textAllCaps="false"/>
+
+    </LinearLayout>
+
+</LinearLayout>

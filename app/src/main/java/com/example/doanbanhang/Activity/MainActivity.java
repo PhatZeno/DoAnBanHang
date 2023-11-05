@@ -14,6 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.example.doanbanhang.adapter.ChiTietSanPham.AllProcActivity;
+import com.example.doanbanhang.adapter.ChiTietSanPham.ChitietbannerActivity;
 import com.example.doanbanhang.adapter.ChiTietSanPham.HeadphoneActivity;
 import com.example.doanbanhang.adapter.ChiTietSanPham.LaptopActivity;
 import com.example.doanbanhang.adapter.ChiTietSanPham.PCActivity;
@@ -34,6 +35,8 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
     ImageView imageViews;
     ArrayList<Sanpham> sanphams;
     SanPhamAdapter sanPhamAdapter;
+
+    ImageView imgbanner;
     DBHelper dbHelper;
     EditText search;
     SessionManager sessionManager;
@@ -48,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
         Laptop=findViewById(R.id.img_laptop);
         Laptop=findViewById(R.id.img_laptop);
         all=findViewById(R.id.img_allsp);
+        imgbanner=findViewById(R.id.imgbanner);
         // Trong Activity A
         EditText editTextA = findViewById(R.id.editTextTextPersonName);
         editTextA.setOnClickListener(new View.OnClickListener() {
@@ -70,6 +74,14 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(MainActivity.this, AllProcActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        imgbanner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(MainActivity.this, ChitietbannerActivity.class);
                 startActivity(intent);
             }
         });
