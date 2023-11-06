@@ -2,6 +2,8 @@ package com.example.doanbanhang.Activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,13 +17,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanbanhang.List.ListDonHang;
 import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.ChiTietSanPham.HeadphoneActivity;
+import com.example.doanbanhang.adapter.DonHangAdapter;
+import com.example.doanbanhang.data.DonHang;
 import com.example.doanbanhang.data.User;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.session.SessionManager;
 
-public class AccountActivity extends AppCompatActivity {
+import java.util.ArrayList;
+
+public class AccountActivity extends AppCompatActivity implements DonHangAdapter.Listener{
 
     TextView textView_ac_name;
 
@@ -29,7 +36,7 @@ public class AccountActivity extends AppCompatActivity {
     TextView ID,UserName,Password;
     Button logout;
     ImageView back;
-
+    DonHangAdapter donHangAdapter;
     TextView lichsumuahang;
     DBHelper dbHelper;
     @Override
@@ -48,6 +55,19 @@ public class AccountActivity extends AppCompatActivity {
         int names=sessionManager.getUserID();
         String currentPassword = dbHelper.searchpassword(names);
         ID.setText("ID: "+String.valueOf(sessionManager.getUserID()));
+
+
+        String username=dbHelper.searchusername(sessionManager.getUserID());
+        ArrayList<DonHang> donHangs;
+        donHangs=dbHelper.getdonhang(username);
+        RecyclerView recyclerView;
+        recyclerView=findViewById(R.id.recyclerviewdonhang);
+        donHangAdapter = new DonHangAdapter(R.id.recyclerviewdonhang, AccountActivity.this, donHangs, AccountActivity.this); // Khởi tạo adapter
+        recyclerView.setAdapter(donHangAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(AccountActivity.this, LinearLayoutManager.VERTICAL, false));
+
+
+
         Password=findViewById(R.id.Account_User_Password);
         Password.setText("Password: "+ currentPassword);
         textView_ac_name.setText(name);
@@ -167,4 +187,13 @@ public class AccountActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onItemClickListener4(int recyclerViewId, DonHang DonHang, int size) {
+
+    }
+
+    @Override
+    public void onItemLongClickListener4(int recyclerViewId, DonHang DonHang, View view) {
+
+    }
 }

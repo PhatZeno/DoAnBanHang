@@ -8,6 +8,7 @@ public class DonHang {
         private String ngayMua;
         private double tongTien;
 
+
     public DonHang(int maDonHang, String maKhachHang, String ngayMua, double tongTien) {
         this.maDonHang = maDonHang;
         this.maKhachHang = maKhachHang;

@@ -375,6 +375,22 @@ public class DBHelper {
         cursor.close();
         return tam;
     }
+    public ArrayList<DonHang> getdonhang(String username){
+        ArrayList<DonHang> tam=new ArrayList<>();
+        db=openDB();
+        String sql="SELECT * FROM DonHang WHERE MaKhachHang=? ";
+        Cursor cursor=db.rawQuery(sql, new String[]{String.valueOf(username)});
+        while (cursor.moveToNext()){
+            int id=cursor.getInt(0);
+            String makhachhang= cursor.getString(1);
+            String ngaymua=cursor.getString(2);
+            double tongtien=cursor.getDouble(3);
+            DonHang donHang=new DonHang(id,makhachhang,ngaymua,tongtien);
+            tam.add(donHang);
+        }
+        cursor.close();
+        return tam;
+    }
     public ArrayList<DanhMuc> getalldanhmuc(){
         ArrayList<DanhMuc> tam=new ArrayList<>();
         db=openDB();
