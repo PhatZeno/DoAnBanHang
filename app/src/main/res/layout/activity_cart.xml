@@ -81,15 +81,41 @@
         android:text="CHECK OUT"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view2"
-        tools:ignore="TextContrastCheck"
-        tools:layout_editor_absoluteX="10dp" />
+        app:layout_constraintVertical_bias="0.864"
+        tools:ignore="TextContrastCheck,TextSizeCheck"
+        tools:layout_editor_absoluteX="4dp" />
 
     <ImageView
-        android:id="@+id/imageView10"
+        android:id="@+id/imgback_cart"
         android:layout_width="46dp"
         android:layout_height="36dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/baseline_arrow_back_24" />
+
+    <EditText
+        android:id="@+id/edDiachi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Địa chỉ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/thanhtien" />
+
+    <EditText
+        android:id="@+id/edGhichu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:text="Ghi chú"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edDiachi" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

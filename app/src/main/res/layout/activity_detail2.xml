@@ -8,7 +8,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="SpeakableTextPresentCheck">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -205,7 +206,7 @@ Take your computing experience to the next level with the
 MacBook Pro 13 M2 chip.
 " />
 
-        <androidx.appcompat.widget.AppCompatButton
+        <Button
             android:id="@+id/addToCartBtn"
             android:layout_width="match_parent"
             android:background="@drawable/red_button_background"

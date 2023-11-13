@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradientalbum"
     tools:context=".adapter.ChiTietSanPham.PCActivity">
 
     <TextView
@@ -27,4 +28,13 @@
         android:layout_marginTop="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txLaptop" />
+
+    <ImageView
+        android:id="@+id/sortlaptop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/rAllLaptop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/baseline_sort_by_alpha_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

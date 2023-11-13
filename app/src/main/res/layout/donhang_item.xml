@@ -11,9 +11,9 @@
         android:id="@+id/RMaDonhang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="8dp"
-        android:text="Ten nguoi dung"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="32dp"
+        android:text="Ma Don Hang"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,21 +23,23 @@
         android:id="@+id/RMaKhachHang"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:text="User Name"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="2dp"
+        android:text="Mã Khách Hàng"
         android:textSize="15sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RMaDonhang" />
+        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <TextView
         android:id="@+id/RNgaymua"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="180dp"
-        android:text="password"
+        android:layout_marginTop="3dp"
+        android:text="Ngay Mua"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/RMaKhachHang" />
+        app:layout_constraintHorizontal_bias="0.051"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
     <ImageView
         android:id="@+id/imageView33"
@@ -51,9 +53,77 @@
         android:id="@+id/RTongtien"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:text="Role"
-        app:layout_constraintStart_toEndOf="@+id/RNgaymua"
-        app:layout_constraintTop_toTopOf="@+id/RNgaymua" />
+        android:layout_marginStart="337dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:text="TongTien"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RGhiChu" />
+
+    <TextView
+        android:id="@+id/txDiaChi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="85dp"
+        android:text="Địa Chỉ"
+        app:layout_constraintStart_toEndOf="@+id/textView24"
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="42dp"
+        android:text="Ngày Mua"
+        app:layout_constraintStart_toStartOf="@+id/RNgaymua"
+        app:layout_constraintTop_toBottomOf="@+id/RMaDonhang" />
+
+    <TextView
+        android:id="@+id/textView25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Mã Đơn Hàng"
+        app:layout_constraintBottom_toTopOf="@+id/RMaDonhang"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mã Khách Hàng"
+        app:layout_constraintStart_toEndOf="@+id/textView25"
+        app:layout_constraintStart_toStartOf="@+id/RMaKhachHang"
+        app:layout_constraintTop_toTopOf="@+id/textView25" />
+
+    <TextView
+        android:id="@+id/Rdiachi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dia Chi"
+        app:layout_constraintStart_toStartOf="@+id/txDiaChi"
+        app:layout_constraintTop_toBottomOf="@+id/txDiaChi" />
+
+    <TextView
+        android:id="@+id/RGhiChu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Ghi Chú"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/RNgaymua" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
+        android:text="Tổng:"
+        app:layout_constraintEnd_toStartOf="@+id/RTongtien"
+        app:layout_constraintTop_toTopOf="@+id/RTongtien" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

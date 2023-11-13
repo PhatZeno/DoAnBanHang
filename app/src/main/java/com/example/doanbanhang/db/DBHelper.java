@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.example.doanbanhang.data.ChiTietDonHang;
 import com.example.doanbanhang.data.DanhMuc;
 import com.example.doanbanhang.data.DonHang;
+import com.example.doanbanhang.data.GioHang;
 import com.example.doanbanhang.data.NhaCungCap;
 import com.example.doanbanhang.data.Sanpham;
 import com.example.doanbanhang.data.User;
@@ -148,6 +149,45 @@ public class DBHelper {
     cursor.close();
     return tam;
 }
+
+    public ArrayList<Sanpham> getallSpsort(){
+        ArrayList<Sanpham> tam=new ArrayList<>();
+        db=openDB();
+        String sql="SELECT * FROM Sanpham  ORDER BY TENSP ASC";
+        Cursor cursor=db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            int id=cursor.getInt(0);
+            String name= cursor.getString(1);
+            String des=cursor.getString(2);
+            int gia=cursor.getInt(3);
+            String danhmuc=cursor.getString(4);
+            Sanpham sanpham=new Sanpham(id,name,des,gia,danhmuc);
+            tam.add(sanpham);
+        }
+
+
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallSpsort2(){
+        ArrayList<Sanpham> tam=new ArrayList<>();
+        db=openDB();
+        String sql="SELECT * FROM Sanpham  ORDER BY TENSP DESC";
+        Cursor cursor=db.rawQuery(sql,null);
+        while (cursor.moveToNext()){
+            int id=cursor.getInt(0);
+            String name= cursor.getString(1);
+            String des=cursor.getString(2);
+            int gia=cursor.getInt(3);
+            String danhmuc=cursor.getString(4);
+            Sanpham sanpham=new Sanpham(id,name,des,gia,danhmuc);
+            tam.add(sanpham);
+        }
+
+
+        cursor.close();
+        return tam;
+    }
     public ArrayList<Sanpham> searchSanpham(String newQuery){
         ArrayList<Sanpham> tmp = new ArrayList<>();
         db = openDB();
@@ -208,7 +248,40 @@ public class DBHelper {
         }
         return null;
     }
-
+    public ArrayList<Sanpham> getallPCsort() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%PC%' ORDER BY TENSP ASC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallPCsort2() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%PC%' ORDER BY TENSP DESC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
     public ArrayList<Sanpham> getallPC() {
         ArrayList<Sanpham> tam = new ArrayList<>();
         db = openDB();
@@ -243,6 +316,40 @@ public class DBHelper {
         cursor.close();
         return tam;
     }
+    public ArrayList<Sanpham> getallPhonesort() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Phone%'  ORDER BY TENSP ASC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallPhonesort2() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Phone%' ORDER BY TENSP DESC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
     public ArrayList<Sanpham> getallHP() {
         ArrayList<Sanpham> tam = new ArrayList<>();
         db = openDB();
@@ -260,10 +367,79 @@ public class DBHelper {
         cursor.close();
         return tam;
     }
+    public ArrayList<Sanpham> getallHPsort() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%HP%'  ORDER BY TENSP ASC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallHPsort2() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%HP%'  ORDER BY TENSP DESC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
     public ArrayList<Sanpham> getallLaptop() {
         ArrayList<Sanpham> tam = new ArrayList<>();
         db = openDB();
         String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Laptop%'";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+    public ArrayList<Sanpham> getallLaptopsort() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Laptop%'  ORDER BY TENSP ASC";
+        Cursor cursor = db.rawQuery(sql, null);
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String des = cursor.getString(2);
+            int gia = cursor.getInt(3);
+            String danhmuc = cursor.getString(4);
+            Sanpham sanpham = new Sanpham(id, name, des, gia, danhmuc);
+            tam.add(sanpham);
+        }
+        cursor.close();
+        return tam;
+    }
+
+    public ArrayList<Sanpham> getallLaptopsort2() {
+        ArrayList<Sanpham> tam = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM Sanpham WHERE Danhmuc like'%Laptop%'  ORDER BY TENSP DESC";
         Cursor cursor = db.rawQuery(sql, null);
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
@@ -422,8 +598,42 @@ public class DBHelper {
         cursor.close();
         return tam;
     }
+    public ArrayList<GioHang> getAllGioHang(String userId){
+        ArrayList<GioHang> gioHangList = new ArrayList<>();
+        db = openDB();
+        String sql = "SELECT * FROM GioHang WHERE USER_ID=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{userId});
+        while (cursor.moveToNext()){
+            String userIds = cursor.getString(0);
+            int sanPhamId = cursor.getInt(1);
+            int soLuong = cursor.getInt(2);
+            GioHang gioHang = new GioHang(userIds,sanPhamId,soLuong);
+            gioHangList.add(gioHang);
+        }
+        cursor.close();
+        return gioHangList;
+    }
 
 
+
+    public Sanpham getSanPham(int MaSanPham){
+        db = openDB();
+        String sql = "SELECT TENSP,DESSP,GIASP,DANHMUC,Nhacungcap FROM Sanpham WHERE ID=?";
+        Cursor cursor = db.rawQuery(sql, new String[]{Integer.toString(MaSanPham)});
+        if (cursor.moveToFirst()){
+            String tensp = cursor.getString(0);
+            String dessp = cursor.getString(1);
+            int giasp = cursor.getInt(2);
+            String danhmuc = cursor.getString(3);
+            String nhacungcap = cursor.getString(4);
+            Sanpham sanPham = new Sanpham(MaSanPham, tensp, dessp, giasp, danhmuc, nhacungcap);
+            cursor.close();
+            return sanPham;
+        } else {
+            cursor.close();
+            return null;
+        }
+    }
     public ArrayList<User> getalluser(){
         ArrayList<User> tam=new ArrayList<>();
         db=openDB();
@@ -441,6 +651,39 @@ public class DBHelper {
         cursor.close();
         return tam;
     }
+    public long deleteFromGioHang(String username,int idsp){
+        db = openDB();
+        long tmp = db.delete("Giohang", "USER_ID = ? AND SANPHAM_ID = ?", new String[]{username, String.valueOf(idsp)});
+        db.close();
+        return tmp;
+    }
+    public long deleteGioHang(String username){
+        db = openDB();
+        long tmp = db.delete("Giohang", "USER_ID = ?", new String[]{username});
+        db.close();
+        return tmp;
+    }
+    public long insertGioHang(GioHang gioHang, String Username, int MaSanPham, Context context){
+        db = openDB();
+        String query = "SELECT * FROM GioHang WHERE USER_ID=? AND SANPHAM_ID=?";
+        Cursor cursor = db.rawQuery(query, new String[]{Username, Integer.toString(MaSanPham)});
+        if(cursor.getCount() <= 0){
+            // Insert new value into database
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("USER_ID", gioHang.getUsername());
+            contentValues.put("SANPHAM_ID", gioHang.getIDsanpham());
+            contentValues.put("SOLUONG", gioHang.getSoluong());
+            long tmp = db.insert("Giohang","",contentValues);
+            cursor.close();
+            db.close();
+            return tmp;
+        } else {
+            Toast.makeText(context, "Sản phẩm đã có trong giỏ hàng", Toast.LENGTH_SHORT).show();
+            cursor.close();
+            db.close();
+            return -1;
+        }
+    }
 
     public long insertDonhang(DonHang donHang, int MaDonHang, Context context){
         db = openDB();
@@ -453,6 +696,8 @@ public class DBHelper {
             contentValues.put("MaKhachHang", donHang.getMaKhachHang());
             contentValues.put("NgayMua", donHang.getNgayMua());
             contentValues.put("TongTien", donHang.getTongTien());
+            contentValues.put("DiaChi",donHang.getDiachi());
+            contentValues.put("GhiChu",donHang.getGhichu());
             long tmp = db.insert("DonHang","",contentValues);
             cursor.close();
             db.close();

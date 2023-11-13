@@ -26,6 +26,7 @@ import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.data.Sanpham;
 import com.example.doanbanhang.session.SessionManager;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Listener{
@@ -183,13 +184,8 @@ public class MainActivity extends AppCompatActivity implements SanPhamAdapter.Li
 
     @Override
     public void onItemClickListener4(int recyclerViewId, Sanpham sanpham, int size) {
-        ArrayList<Sanpham> Arraysp = new ArrayList<>();
-
-        for (Sanpham sanpham1 : sanphams) {
-            Arraysp.add(sanpham1);
-        }
-        Intent intent = new Intent(this, CartActivity.class);
-        intent.putParcelableArrayListExtra("sanpham_list", Arraysp);
+        Intent intent = new Intent(this, DetailActivity2.class);
+        intent.putExtra("Sanpham", (Serializable) sanpham);
         startActivity(intent);
     }
 

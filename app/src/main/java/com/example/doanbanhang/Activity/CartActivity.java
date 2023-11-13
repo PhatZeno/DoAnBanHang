@@ -9,6 +9,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,7 @@ import com.example.doanbanhang.R;
 import com.example.doanbanhang.adapter.SanPhamAdapter;
 import com.example.doanbanhang.data.ChiTietDonHang;
 import com.example.doanbanhang.data.DonHang;
+import com.example.doanbanhang.data.GioHang;
 import com.example.doanbanhang.data.Sanpham;
 import com.example.doanbanhang.db.DBHelper;
 import com.example.doanbanhang.session.SessionManager;
@@ -32,27 +34,23 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class CartActivity extends AppCompatActivity implements SanPhamAdapter.Listener{
-    ImageView imgback;
-    TextView thanhtien;
     RecyclerView recyclerView;
     SanPhamAdapter adapter;
     Button btnCheckOut;
     DBHelper dbHelper;
-    SharedPreferences sharedPref;
-    Gson gson;
-    ArrayList<Sanpham> Arraysp;
+    ImageView imgback;
+    EditText diachi,ghichu;
+    ArrayList<Sanpham> sanPhamList;
+    TextView thanhtien;
+    String user_id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbHelper=new DBHelper(CartActivity.this);
         setContentView(R.layout.activity_cart);
-        imgback=findViewById(R.id.imageView10);
         thanhtien=findViewById(R.id.thanhtien);
-        btnCheckOut=findViewById(R.id.checkOutButton);
-       SessionManager sessionManager=new SessionManager(CartActivity.this);
-       String maKhachHang=sessionManager.getsusername();
-        sharedPref = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        gson = new Gson();
+        diachi=findViewById(R.id.edDiachi);
+        ghichu=findViewById(R.id.edGhichu);
+        imgback=findViewById(R.id.imgback_cart);
         imgback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,42 +58,42 @@ public class CartActivity extends AppCompatActivity implements SanPhamAdapter.Li
                 startActivity(intent);
             }
         });
-        sharedPref = getSharedPreferences("MyPreferences", Context.MODE_PRIVATE);
-        gson = new Gson();
-        String json = sharedPref.getString("sanpham_list", "");
-        Type type = new TypeToken<ArrayList<Sanpham>>() {}.getType();
-        Arraysp = gson.fromJson(json, type);
-
-        if (Arraysp == null || Arraysp.isEmpty()) {
-            Arraysp = getIntent().getParcelableArrayListExtra("sanpham_list");
-        } else {
-            ArrayList<Sanpham> extrasList = getIntent().getParcelableArrayListExtra("sanpham_list");
-            if (extrasList != null) {
-                for (Sanpham sanpham : extrasList) {
-                    if (!Arraysp.contains(sanpham)) {
-                        Arraysp.add(sanpham);
-                    }
-                }
-            }
+        dbHelper = new DBHelper(this);
+        SessionManager sessionManager = new SessionManager(CartActivity.this);
+         user_id = dbHelper.searchusername(sessionManager.getUserID());
+        ArrayList<GioHang> gioHangList = dbHelper.getAllGioHang(user_id);
+        sanPhamList = new ArrayList<>();
+        for (GioHang gioHang : gioHangList) {
+            Sanpham sanPham = dbHelper.getSanPham(gioHang.getIDsanpham());
+            sanPhamList.add(sanPham);
         }
+
         recyclerView = findViewById(R.id.cart_rec);
-        adapter = new SanPhamAdapter(R.id.cart_rec, CartActivity.this, Arraysp, CartActivity.this);
+        adapter = new SanPhamAdapter(R.id.cart_rec, CartActivity.this, sanPhamList, CartActivity.this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(CartActivity.this, LinearLayoutManager.VERTICAL, false));
+        btnCheckOut=findViewById(R.id.checkOutButton);
+        int tongTien = 0;
+        for (Sanpham sp : sanPhamList) {
+            tongTien += sp.getGia();
+        }
+        thanhtien.setText(String.valueOf(tongTien) + "VND");
         btnCheckOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int tongTien = 0;
-                for (Sanpham sp : Arraysp) {
+                for (Sanpham sp : sanPhamList) {
                     tongTien += sp.getGia();
                 }
                 Random rand = new Random();
                 int ID = rand.nextInt(999) + 1;
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
                 String ngaymua = formatter.format(new Date());
-                DonHang donHang = new DonHang(ID, maKhachHang, ngaymua, tongTien);
+                String diachis=diachi.getText().toString();
+                String ghichus=ghichu.getText().toString();
+                DonHang donHang = new DonHang(ID, user_id, ngaymua, tongTien,diachis,ghichus);
                 ArrayList<ChiTietDonHang> chiTietDonHangs = new ArrayList<>();
-                for (Sanpham sanpham : Arraysp) {
+                for (Sanpham sanpham : sanPhamList) {
                     ChiTietDonHang chiTietDonHang = new ChiTietDonHang(ID, sanpham.getID(), 1, sanpham.getGia());
                     chiTietDonHangs.add(chiTietDonHang);
                 }
@@ -103,10 +101,11 @@ public class CartActivity extends AppCompatActivity implements SanPhamAdapter.Li
                 for (ChiTietDonHang chiTietDonHang : chiTietDonHangs) {
                     dbHelper.insertChitietDonhang(chiTietDonHang,CartActivity.this);
                 }
+                dbHelper.deleteGioHang(user_id);
             }
         });
-
     }
+
 
     @Override
     public void onItemClickListener4(int recyclerViewId, Sanpham sanpham, int size) {
@@ -118,29 +117,26 @@ public class CartActivity extends AppCompatActivity implements SanPhamAdapter.Li
                 .setMessage("Bạn có chắc chắn muốn xóa sản phẩm này không?")
                 .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        Arraysp.remove(sanpham);
-                        adapter.notifyDataSetChanged();
-                        int total = 0;
-                        for (Sanpham sp : Arraysp) {
-                            total += sp.getGia();
-                        }
-                        thanhtien.setText(String.valueOf(total));
-                        String json = gson.toJson(Arraysp);
-                        SharedPreferences.Editor editor = sharedPref.edit();
-                        editor.putString("sanpham_list", json);
-                        editor.apply();
+                        dbHelper.deleteFromGioHang(user_id, sanpham.getID());
                     }
                 })
                 .setNegativeButton(android.R.string.no, null)
                 .setIcon(android.R.drawable.ic_dialog_alert)
                 .show();
     }
-//    @Override
-//    public boolean equals(Object obj) {
-//        if (this == obj) return true;
-//        if (obj == null || getClass() != obj.getClass()) return false;
-//        Sanpham sanpham = (Sanpham) obj;
-//        return tenSanPham.equals(sanpham.tenSanPham);
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        DBHelper dbHelper = new DBHelper(this);
+        SessionManager sessionManager = new SessionManager(CartActivity.this);
+        String user_id = dbHelper.searchusername(sessionManager.getUserID());
+        ArrayList<GioHang> gioHangList = dbHelper.getAllGioHang(user_id);
+        ArrayList<Sanpham> sanPhamList = new ArrayList<>();
+        for (GioHang gioHang : gioHangList) {
+            Sanpham sanPham = dbHelper.getSanPham(gioHang.getIDsanpham());
+            sanPhamList.add(sanPham);
+        }
+        // Now you can use sanPhamList to display the list of products in the cart
+    }
 
 }

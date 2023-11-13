@@ -10,20 +10,20 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#7B68EE"
         android:gravity="center"
         android:padding="10dp"
-        android:textStyle="bold"
         android:text="Các chương trình khuyến mãi"
         android:textColor="@color/white"
-        android:background="#7B68EE"
-        android:textSize="20sp"/>
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <ImageView
+        android:id="@+id/anh1"
         android:layout_width="match_parent"
         android:layout_height="190dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/anh"
-        />
+        android:background="@drawable/anh" />
 
 
     <LinearLayout
@@ -36,17 +36,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textStyle="bold"
             android:text="Galaxy S21 FE, S22 Ultra, S23 series, đua nhau giảm giá cuối tuần, mức sale cao nhất đến 14 triệu"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/anh2"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:background="@drawable/anh2"
-        />
+        android:background="@drawable/anh2" />
 
 
     <LinearLayout
@@ -59,17 +59,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textStyle="bold"
             android:text="Khách hàng VIP sẽ được giảm giá đến 40% khi đến mua điện thoại tại cửa hàng"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <ImageView
+        android:id="@+id/anh3"
         android:layout_width="match_parent"
         android:layout_height="190dp"
-        android:background="@drawable/hinh3"
-        />
+        android:background="@drawable/hinh3" />
 
 
     <LinearLayout
@@ -82,9 +82,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:textStyle="bold"
             android:text="iPhone 15 Pro Max 256GB giảm sốc nhất từ trước đến nay, số lượng có hạn"
-            android:textAllCaps="false"/>
+            android:textAllCaps="false"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

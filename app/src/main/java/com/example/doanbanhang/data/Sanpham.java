@@ -3,7 +3,9 @@ package com.example.doanbanhang.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Sanpham implements Parcelable {
+import java.io.Serializable;
+
+public class Sanpham implements Parcelable, Serializable {
     int ID;
     String Tensp;
     String Dessp;

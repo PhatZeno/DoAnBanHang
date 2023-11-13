@@ -48,7 +48,8 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.DonHangV
         holder.NgayMua.setText(DonHang.getNgayMua());
         holder.MaKhachHang.setText(DonHang.getMaKhachHang());
         holder.setIsRecyclable(false);
-
+        holder.Ghichu.setText(DonHang.getGhichu());
+        holder.Diachi.setText(DonHang.getDiachi());
         holder.TongTien.setText(String.valueOf(DonHang.getTongTien()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +90,7 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.DonHangV
     class DonHangVH extends RecyclerView.ViewHolder{
 
 
-        TextView MaDonHang, MaKhachHang, NgayMua, TongTien;
+        TextView MaDonHang, MaKhachHang, NgayMua, TongTien,Diachi,Ghichu;
 
         public DonHangVH
                 (@NonNull View itemView) {
@@ -98,6 +99,8 @@ public class DonHangAdapter extends RecyclerView.Adapter<DonHangAdapter.DonHangV
             MaKhachHang =itemView.findViewById(R.id.RMaKhachHang);
             NgayMua =itemView.findViewById(R.id.RNgaymua);
             TongTien =itemView.findViewById(R.id.RTongtien);
+            Diachi=itemView.findViewById(R.id.Rdiachi);
+            Ghichu=itemView.findViewById(R.id.RGhiChu);
         }
     }
 
